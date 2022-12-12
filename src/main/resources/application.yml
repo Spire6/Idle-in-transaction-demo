@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  webflux:
+    base-path: /demo
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/admin?schema=foo
+    username: foo
+    password: password
+    pool:
+      enabled: true
+      max-idle-time: 10m
+      initial-size: 10
+      max-size: 10
+      validation-query: SELECT 1
+
+logging:
+  level:
+    ROOT: info
+    hu.example: debug
+    org.springframework.r2dbc: TRACE
+    org.springframework.data.r2dbc: TRACE
+    org.springframework.transaction.interceptor: TRACE
